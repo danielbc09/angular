@@ -1,6 +1,21 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
     <div class="col-xs-12">
+        <button class="btn btn-primary"
+                (click)="toggleParagraph()"> Display Details </button>
+        <p *ngIf="show">{{ paragraphContent }} </p>
+        <ul>
+          <li *ngFor="let item of logs"
+              [ngStyle]="{'background-color': getColor(item)}"
+              [ngClass] ="{'white-text' : item >= 5}">{{ item }}
+          </li>
+        </ul>
+    </div>
+  </div>
+  <br> 
+  <hr>
+  <div class="row">
+    <div class="col-xs-12">    
       <ol>
         <li>Add A button which says 'Display Details'</li>
         <li>Add a paragraph with any content of your choice (e.g. 'Secret Password = tuna')</li>
