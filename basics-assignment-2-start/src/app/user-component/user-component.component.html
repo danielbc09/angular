@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+      <div class="col-xs-12">
+          <h3>I'm the user component!</h3>
+          <hr>
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">=)</span>
+            <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1" [(ngModel)]="userName">
+          </div>
+          <br>
+          <p>{{ userName }}</p>
+          <button class="btn btn-primary"
+                  [disabled]="!userName"
+                  (click) ="clearInput()">My Buton</button>
+      </div>
+  </div>
+</div>
