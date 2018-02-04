@@ -5,9 +5,9 @@
                 (click)="toggleParagraph()"> Display Details </button>
         <p *ngIf="show">{{ paragraphContent }} </p>
         <ul>
-          <li *ngFor="let item of logs"
-              [ngStyle]="{'background-color': getColor(item)}"
-              [ngClass] ="{'white-text' : item >= 5}">{{ item }}
+          <li *ngFor="let item of logs; let index = index"
+              [ngStyle]="{'background-color': getColor(index)}"
+              [ngClass] ="{'white-text' : index >= 4}">{{ item }}
           </li>
         </ul>
     </div>

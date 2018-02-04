@@ -14,10 +14,10 @@ export class AppComponent {
 
   toggleParagraph() {
     this.show = !this.show;
-    this.logs.push(this.logs.length + 1);
+    this.logs.push(new Date());
   }
 
   getColor(item) {
-    return item >= 5 ? 'blue' : '';
+    return item >= 4 ? 'blue' : '';
   }
 }
