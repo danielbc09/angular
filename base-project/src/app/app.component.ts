@@ -15,7 +15,6 @@ export class AppComponent {
       name: serverData.serverName,
       content: serverData.serverContent,
     });
-    console.log('onServerAdded' + this.serverElements);
   }
 
   onBlueprintAdded(bluePrint: {serverName: string, serverContent: string}) {
@@ -24,7 +23,9 @@ export class AppComponent {
       name: bluePrint.serverName,
       content: bluePrint.serverContent,
     });
-    console.log('onBlueprintAdded' + this.serverElements);
   }
 
+  onDestroyFirst() {
+    this.serverElements.splice(0);
+  }
 }
