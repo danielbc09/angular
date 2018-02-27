@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'deep directives';
-  nubers = [1, 2, 3, 4, 5];
-  onlyOdd = false;
+  oddNumbers = [1, 2, 3];
+  evenNumbers = [2, 4];
+  numbers = [1, 2, 3, 4, 5];
+  onlyOdd = true;
 }
