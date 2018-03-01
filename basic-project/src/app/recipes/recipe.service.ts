@@ -4,6 +4,7 @@ import { Ingredient } from '../shared/ingredients.model';
 
 
 export class RecipeService {
+
     recipeSelected = new EventEmitter<Recipe>();
 
     private recipes: Recipe[] = [
