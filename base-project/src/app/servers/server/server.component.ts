@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import { ServersService } from '../servers.service';
-import { relative } from 'path';
 
 @Component({
   selector: 'app-server',
