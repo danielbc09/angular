@@ -11,7 +11,7 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./edit-server.component.css']
 })
 export class EditServerComponent implements OnInit, CanComponentDeactivate {
- 
+
   server: {id: number, name: string, status: string};
   serverName = '';
   serverStatus = '';
