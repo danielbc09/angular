@@ -8,7 +8,8 @@ import { UserService } from './users.service';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private userService: UserService){}
+  constructor(private userService: UserService) {}
+
   user1Activated = false;
   user2Activated = false;
   ngOnInit(): void {
