@@ -1,7 +1,28 @@
 <div class="container">
-    <div class="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <strong>Title!</strong> Alert body ...
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col md-offset">
+            <form>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text"
+                        id="username"
+                        class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="email">email</label>
+                    <input type="text"
+                            id="email"
+                            class="form-control">
+                </div>
+                <div class="radio" *ngFor="let gender of genders">
+                    <label>
+                        <input type="radio"
+                               [value]="gender">
+                               {{ gender }}
+                    </label>
+                </div>
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </form>
+        </div>
     </div>
-        
 </div>
