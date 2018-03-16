@@ -1,63 +1,39 @@
 <div class="container">
     <div class="row">
-        <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col md-offset">
-            <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-                <div formGroupName="userData">
-                        <div class="form-group">
-                            <label for="username">Username</label>
-                            <input type="text"
-                                id="username"
-                                formControlName="username"
-                                class="form-control">
-            
-                            <span 
-                                *ngIf="!signupForm.get('userData.username').valid && signupForm.get('userData.username').touched" 
-                                class="help-block">                        
-                                <span *ngIf="signupForm.get('userData.username').errors['nameIsForbidden']">This user name is invalid. 
-                                </span>
-                                <span *ngIf="signupForm.get('userData.username').errors['required']"> This field is required!
-                                </span>
-                            </span>      
-                        </div>
-                        <div class="form-group">
-                            <label for="email">email</label>
-                                
-                            <input type="text"
-                                    id="email"
-                                    formControlName="email"
-                                    class="form-control">
-                                
-                            <span 
-                                *ngIf="!signupForm.get('userData.email').valid && signupForm.get('userData.email').touched" 
-                                class="help-block">Please enter valid email! </span>
-                        </div>
-                </div>                
-                <div class="radio" *ngFor="let gender of genders">
-                    <label>
-                        <input type="radio"
-                                formControlName="gender"
-                                [value]="gender">
-                                        {{ gender }}
-                    </label>
+        <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset">
+            <form [formGroup]="singupForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text"
+                            id="projectname"
+                            formControlName="projectname"
+                            class="form-control">
                 </div>
-            
-                <div formArrayName="hobbies">
-                    <h4>Your hobbies</h4>
-                    <button class="btn btn-default" 
-                            type="button" 
-                            (click)="onAddHobby()">Add a Hobby</button>
-                    <div class="form-group"
-                         *ngFor="let hobbyControl of signupForm.get('hobbies').controls; let i = index">
-                        <input type="text" class="form-control" [formControlName]="i">
-                    </div>       
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text"
+                            id="username"
+                            formControlName="email"
+                            class="form-control">
+                </div>
+                <div class="form-group">
+                    <div class="dropdown" appDropDown>
+                        <button type="button"
+                                class="btn btn-default dropdown-toggle">
+                          Project status
+                          <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">Action</a></li>
+                          <li><a href="#">Another action</a></li>
+                          <li><a href="#">Something else here</a></li>
+                          <li role="separator" class="divider"></li>
+                          <li><a href="#">Separated link</a></li>
+                        </ul>
+                      </div>
+                </div>
                 
-                </div>  
-
-               <span 
-                    *ngIf="!signupForm.valid && signupForm.touched" 
-                    class="help-block">Please enter valid data ! 
-                </span>
-                <button class="btn btn-primary" type="submit">Submit</button>
+                <button type="submit" class="btn btn-default">Submit data</button>
             </form>
         </div>
     </div>
