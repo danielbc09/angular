@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
+import { CustomValidators } from './custom-validators';
 import { Observable } from 'rxjs/Observable';
 import { reject } from 'q';
 
@@ -14,12 +15,15 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.singupForm = new FormGroup({
-      'projectname': new FormControl('Project', Validators.required),
-      'email': new FormControl('test@email.com', [Validators.required, Validators.email]), 
+      'projectName': new FormControl('Project', [Validators.required, 
+        CustomValidators.invalidProjectName],
+        CustomValidators.asyncInvalidPRojectName),
+      'email': new FormControl('test@email.com', [Validators.required, Validators.email]),
+      'projectStatus':  new FormControl('critical'),
     });
   }
 
   onSubmit() {
-    console.log(this.singupForm);
+    console.log(this.singupForm.value);
   }
 }
