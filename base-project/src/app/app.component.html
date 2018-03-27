@@ -9,7 +9,9 @@
             <button class="btn btn-primary" (click) = "onAddServer()">Add Server</button>
             <ul class="list-group">
                 <li class="list-group-item"
-                    *ngFor="let server of servers | filter:filteredStatus:'status'"
+                    *ngFor="let server of servers | 
+                            filter:filteredStatus:'status' | 
+                            sort:'name'"
                     [ngClass]="getStatusClasses(server)">
                     <span class="badge">
                         {{ server.status }}
