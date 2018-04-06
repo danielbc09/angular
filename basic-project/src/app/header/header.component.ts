@@ -19,4 +19,10 @@ export class HeaderComponent {
                 }
             );
     }
+
+    onFetchData() {
+        console.log('dasdk');
+
+        this.dataStorageService.getRecipes();
+    }
 }
