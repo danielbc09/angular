@@ -28,4 +28,8 @@ export class HeaderComponent {
     fetchRecipes() {
         this.dataStorageService.getRecipes();
     }
+
+    logOut() {
+      this.authService.logOut();
+    }
 }
