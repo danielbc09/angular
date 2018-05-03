@@ -9,7 +9,7 @@ import { RecipeItemComponent } from './recipe-list/recipe-item/recipe-item.compo
 import { ReactiveFormsModule } from '@angular/forms';
 import { DropDownDirective } from '../shared/dropdown.directive';
 import { Browser } from 'protractor';
-import { BrowserModule } from '@angular/platform-browser';
+import { RecipesRoutingModule } from './recipes-routing.module';
 
 
 @NgModule({
@@ -23,9 +23,9 @@ import { BrowserModule } from '@angular/platform-browser';
   ],
 
   imports: [
-    BrowserModule,
     CommonModule,
     ReactiveFormsModule,
+    RecipesRoutingModule,
   ]
 })
 export class RecipesModule {
