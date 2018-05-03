@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { DropDownDirective } from '../shared/dropdown.directive';
 import { Browser } from 'protractor';
 import { RecipesRoutingModule } from './recipes-routing.module';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { RecipesRoutingModule } from './recipes-routing.module';
     CommonModule,
     ReactiveFormsModule,
     RecipesRoutingModule,
+    SharedModule,
   ]
 })
 export class RecipesModule {
