@@ -15,7 +15,9 @@ export class DataStorageService {
         const token = this.authServices.getToken();
         return this.httpClient
                     .put('https://ng-recipe-book-985da.firebaseio.com/recipes.json?auth=' + token,
-                        this.recipeService.getRecipes());
+                        this.recipeService.getRecipes(), {
+                          observe:'events'
+                        });
     }
 
     getRecipes () {
