@@ -18,9 +18,8 @@ export class HeaderComponent {
         this.dataStorageService
             .storeRecipes()
             .subscribe(
-                (response: HttpEvent<Object>) => {
-                    console.log(response.type === HttpEventType.Response);
-                    //console.log(response);
+                (response) => {
+                    console.log(response);
                 }
             );
     }
