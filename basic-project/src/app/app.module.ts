@@ -39,6 +39,7 @@ import { DataStorageService } from './shared/data-storage.service';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpModule,
     ReactiveFormsModule,
     HttpModule,
   ],
