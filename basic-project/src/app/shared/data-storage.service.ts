@@ -13,7 +13,7 @@ export class DataStorageService {
 
     storeRecipes() {
         const token = this.authServices.getToken();
-       //const header = new HttpHeaders().set('Authorization', 'Tokkasdkasdkasd');
+    // const header = new HttpHeaders().set('Authorization', 'Tokkasdkasdkasd');
     //    return this.httpClient
     //                .put('https://ng-recipe-book-985da.firebaseio.com/recipes.json',
     //                    this.recipeService.getRecipes(), {
@@ -42,8 +42,8 @@ export class DataStorageService {
                 (recipes) => {
                   console.log(recipes);
 
-                    for(let recipe of recipes){
-                        if (!recipe['ingredients']){
+                    for (const recipe of recipes) {
+                        if (!recipe['ingredients']) {
                             console.log(recipe);
                             recipe['ingredients'] = [];
                         }
