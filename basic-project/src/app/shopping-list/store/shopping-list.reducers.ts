@@ -1,11 +1,24 @@
 import * as shoppingListActions from './shopping-list.actions';
 import { Ingredient } from '../../shared/ingredients.model';
+import { stat } from 'fs';
 
-const initialState = {
+export interface AppState {
+    shoppingList: State;
+}
+
+export interface State {
+    ingredients: Ingredient[];
+    editedIngredient: Ingredient;
+    editedIngredientIndex: number;
+}
+
+const initialState: State = {
     ingredients: [
         new Ingredient('Apples', 5),
         new Ingredient('Tomatoes', 10),
-    ]
+    ],
+    editedIngredient: null,
+    editedIngredientIndex: -1,
 };
 export function shoppingListReducer(state = initialState, action: shoppingListActions.ShoppingListActions) {
 
@@ -19,6 +32,36 @@ export function shoppingListReducer(state = initialState, action: shoppingListAc
             return{
                 ...state,
                 ingredients: [...state.ingredients, ...action.payload]
+            };
+        case shoppingListActions.UPDATE_INGREDIENTS:
+            const ingredient = state.ingredients[state.editedIngredientIndex];
+            const updateIngrediend = {
+                ...ingredient,
+                ...action.payload.ingredient
+            };
+            const ingredients = [...state.ingredients];
+            ingredients[state.editedIngredientIndex] = updateIngrediend;
+            return{
+                ...state,
+                ingredients: ingredients,
+                editedIngredient: null,
+                editedIngredientIndex: -1
+            };
+        case shoppingListActions.DELETE_INGREDIENT:
+            const oldIngredients = [...state.ingredients];
+            oldIngredients.splice(state.editedIngredientIndex, 1);
+            return{
+                ... state,
+                ingredients: oldIngredients,
+                editedIngredient: null,
+                editedIngredientIndex: -1
+            };
+        case shoppingListActions.START_EDIT:
+            const editedIngredient = {...state.ingredients[action.payload]};
+            return {
+            ...state,
+            editedIngredient: editedIngredient,
+            editedIngredientIndex: action.payload
             };
         default:
             return state;
