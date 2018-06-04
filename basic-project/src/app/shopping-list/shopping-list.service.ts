@@ -12,18 +12,9 @@ export class ShoppingListService {
         new Ingredient('Tomatoes', 20),
       ];
 
-     getIngredients() {
-        return this.ingredients.slice();
-     }
-
      getIngredientById(index: number) {
         return this.ingredients[index];
      }
-
-    addIngredient(ingredient: Ingredient) {
-        this.ingredients.push(ingredient);
-        this.ingredientsChanged.next(this.ingredients.slice());
-    }
 
     addIngredients(ingredients: Ingredient[]) {
        /* spread operator ES6*/

@@ -3,20 +3,21 @@ import { Ingredient } from '../../shared/ingredients.model';
 import { ShoppingListService } from '../shopping-list.service';
 import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs/Subscription';
-
+import { Store } from '@ngrx/store';
+import * as ShoppingListActions from '../store/shopping-list.actions';
 @Component({
   selector: 'app-shopping-edit',
   templateUrl: './shopping-edit.component.html',
   styleUrls: ['./shopping-edit.component.css']
 })
-export class ShoppingEditComponent implements OnInit, OnDestroy{
+export class ShoppingEditComponent implements OnInit, OnDestroy {
   @ViewChild('form') slForm: NgForm;
   subscription: Subscription;
   editMode = false;
   editedItemId: number;
   editedItem: Ingredient;
 
-  constructor(private shoppingListService: ShoppingListService) { }
+  constructor(private shoppingListService: ShoppingListService, private store: Store<{shoppingList: {ingredients: Ingredient[]}}>) { }
 
   ngOnInit() {
     this.subscription = this.shoppingListService.starterdEditing
@@ -28,7 +29,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy{
             this.slForm.setValue({
               name: this.editedItem.name,
               amount: this.editedItem.amount
-            })
+            });
           }
         );
   }
@@ -36,22 +37,22 @@ export class ShoppingEditComponent implements OnInit, OnDestroy{
   onAddItem(form: NgForm) {
     const formValues  = form.value;
     const newIngredient = new Ingredient(formValues.name, formValues.amount);
-    if(this.editMode){
-      this.shoppingListService.updateIngredient(this.editedItemId, newIngredient); 
-    }else{
-      this.shoppingListService.addIngredient(newIngredient);
+    if (this.editMode) {
+      this.shoppingListService.updateIngredient(this.editedItemId, newIngredient);
+    } else {
+      this.store.dispatch(new ShoppingListActions.AddIngredient(newIngredient));
     }
     this.editMode = false;
-    form.reset()  
+    form.reset();
   }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
 
-  onClear():void {
+  onClear(): void {
     this.slForm.reset();
-    this.editMode= false;
+    this.editMode = false;
   }
 
   onDelete() {
