@@ -1,6 +1,5 @@
 import { Component, OnInit} from '@angular/core';
 import { Recipe } from '../recipe.model';
-import { ShoppingListService } from '../../shopping-list/shopping-list.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { RecipeService } from '../recipe.service';
 import { Store } from '@ngrx/store';
@@ -17,7 +16,7 @@ export class RecipeDetailComponent implements OnInit {
   recipe: Recipe;
   id: number;
 
-  constructor(private shoppingListService: ShoppingListService,
+  constructor(
               private recipeServices: RecipeService,
               private route: ActivatedRoute,
               private router: Router,
