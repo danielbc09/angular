@@ -1,5 +1,5 @@
-import { HttpInterceptor, HttpRequest, HttpHandler, HttpSentEvent, HttpEvent } from "@angular/common/http";
-import { Observable } from "rxjs/Observable";
+import { HttpInterceptor, HttpRequest, HttpHandler, HttpSentEvent, HttpEvent } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
 
 export class AuthInterceptor implements HttpInterceptor {
 
