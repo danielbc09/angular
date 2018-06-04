@@ -13,14 +13,6 @@ export class DataStorageService {
 
     storeRecipes() {
         const token = this.authServices.getToken();
-    // const header = new HttpHeaders().set('Authorization', 'Tokkasdkasdkasd');
-    //    return this.httpClient
-    //                .put('https://ng-recipe-book-985da.firebaseio.com/recipes.json',
-    //                    this.recipeService.getRecipes(), {
-    //                      observe:'events',
-    //                      params: new HttpParams().set('auth', token),
-    //                    });
-
         const req = new HttpRequest('PUT',
           'https://ng-recipe-book-985da.firebaseio.com/recipes.json',
            this.recipeService.getRecipes(),
